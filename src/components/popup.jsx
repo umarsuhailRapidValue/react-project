@@ -5,7 +5,7 @@ import CloseIcon from '@material-ui/icons/Close';
 export default function Popup(props) {
     React.useEffect(() => {
         document.body.style.overflow = "hidden"
-    })
+    },[])
     return (
         <div className="popup-overlay">
             <div className="popup-container">

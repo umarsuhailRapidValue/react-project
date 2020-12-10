@@ -96,6 +96,11 @@ export default function GridLayout(props) {
     showPopup(!popup);
     setPopup(value);
   }
+  function popupClose(){
+   document.body.style.overflow = "auto";
+   showPopup(!popup)
+
+  }
   const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
   console.log(popup);
@@ -155,7 +160,7 @@ export default function GridLayout(props) {
           title={popupData.title}
           cast={popupData.actors}
           plot={popupData.plot}
-          handleClose={() => showPopup(!popup)}
+          handleClose={() => popupClose()}
         />
       ) : (
         ""
