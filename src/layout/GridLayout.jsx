@@ -8,6 +8,7 @@ import sampleImage from ".././assets/sample.jpg";
 import promise from "promise";
 import Loader from "../components/loader";
 import Popup from "../components/popup";
+import ImageLoad from "../components/image";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -64,8 +65,7 @@ export default function GridLayout(props) {
   const [popupData, setPopup] = useState({});
 
   const [images, setImages] = useState([]);
-
-  useEffect(() => {
+  function fetchImages() {
     data.movies.map((values) => {
       setLoading(true);
 
@@ -90,16 +90,16 @@ export default function GridLayout(props) {
         }
       );
     });
-  }, []);
+  }
+  useEffect(() => {}, []);
   function handleClick(value) {
     console.log(value);
     showPopup(!popup);
     setPopup(value);
   }
-  function popupClose(){
-   document.body.style.overflow = "auto";
-   showPopup(!popup)
-
+  function popupClose() {
+    document.body.style.overflow = "auto";
+    showPopup(!popup);
   }
   const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
@@ -123,22 +123,9 @@ export default function GridLayout(props) {
                     className={classes.paper}
                     style={{ position: "relative" }}
                   >
-                    {images.map((items) => {
-                      <div>
-                        <img
-                          key={items.id}
-                          src={items.image}
-                          style={{
-                            position: "absolute",
-                            maxWidth: 100,
-                            left: 4,
-                            top: 0,
-                            maxHeight: 140,
-                          }}
-                        />
-                        <span>{items.id}</span>
-                      </div>;
-                    })}
+                    <ImageLoad src={value.posterUrl}
+                    placeholder={sampleImage}
+                    alt='placeholder'/>
                   </Paper>
                   <Typography
                     variant="h6"
