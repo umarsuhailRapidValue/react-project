@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from './sideBar.jsx'
+import Filter from '../components/filter'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -35,8 +36,9 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Movie booking platform
+            Movie List
           </Typography>
+          <Filter/>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

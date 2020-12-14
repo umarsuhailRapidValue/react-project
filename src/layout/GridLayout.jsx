@@ -103,7 +103,7 @@ export default function GridLayout(props) {
   }
   const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
-  console.log(popup);
+  console.log(data);
   return (
     <div>
       {loading ? (

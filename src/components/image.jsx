@@ -12,15 +12,16 @@ const ImageLoad = React.memo(({src,placeholder,alt=""})=>{
     }, [src])
     return(
         <img src={currentSrc}
-        style={{
-            opacity:loading?0.5:1,
-            transition:"opacity .15s liner ",
-            position: "absolute",
-            maxWidth: 100,
-            left: 4,
-            top: 0,
-            maxHeight: 140,
-        }}
+        className="image-list"
+        // style={{
+        //     opacity:loading?0.5:1,
+        //     transition:"opacity .15s liner ",
+        //     // position: "absolute",
+        //     maxWidth: 180,
+        //     // left: 4,
+        //     // top: 0,
+        //     // maxHeight: 140,
+        // }}
         alt={alt}
         >
         </img>
