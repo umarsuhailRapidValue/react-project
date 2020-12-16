@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from './sideBar.jsx'
 import Filter from '../components/filter'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,

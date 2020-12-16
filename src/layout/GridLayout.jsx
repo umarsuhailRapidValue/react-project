@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import data from ".././data.json";
+import {MovieContext} from '../context/movieContext'
 import sampleImage from ".././assets/sample.jpg";
 import promise from "promise";
 import Loader from "../components/loader";
@@ -34,63 +34,14 @@ function testImage(URL) {
     imageObj.src = URL;
   });
   return imagePromise;
-
-  // var tester=new Image();
-  // tester.onload=imageFound(URL);
-  // tester.onerror=imageNotFound(URL);
-  // tester.src=URL;
 }
-
-// function imageFound(URL,index) {
-//   // imageArray=[...imageArray,URL]
-// const imageData={
-//   id:index,
-//   image:URL
-// }
-// imageArray.push(imageData)
-// }
-
-// function imageNotFound(URL,index) {
-//  const imageData={
-//   id:index,
-//   image:sampleImage
-// }
-//   // imageArray=[...imageArray,sampleImage]
-//   imageArray.push(imageData)
-// }
 
 export default function GridLayout(props) {
   const [loading, setLoading] = useState(false);
   const [popup, showPopup] = useState(false);
   const [popupData, setPopup] = useState({});
-
-  const [images, setImages] = useState([]);
-  function fetchImages() {
-    data.movies.map((values) => {
-      setLoading(true);
-
-      testImage(values.posterUrl).then(
-        function fulfilled(img) {
-          console.log("That image is found and loaded", img);
-          const newImage = {
-            id: values.id,
-            image: img.currentSrc,
-          };
-          setImages((images) => [...images, newImage]);
-          // setImages(images => [...images, {
-          //   id: values.id,
-          //   image: img.currentSrc
-          // }])
-
-          // setImages(newImage)
-        },
-        function rejected() {
-          console.log("That image was not found");
-          setLoading(false);
-        }
-      );
-    });
-  }
+const [movies,setMovies] = useContext(MovieContext);
+ 
   useEffect(() => {}, []);
   function handleClick(value) {
     console.log(value);
@@ -103,7 +54,7 @@ export default function GridLayout(props) {
   }
   const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
-  console.log(data);
+  console.log(movies);
   return (
     <div>
       {loading ? (
@@ -117,7 +68,7 @@ export default function GridLayout(props) {
               style={{ marginTop: "140px" }}
               spacing={2}
             >
-              {data.movies.map((value) => (
+              {movies[0].movies.map((value) => (
                 <Grid key={value.id} item onClick={() => handleClick(value)}>
                   <Paper
                     className={classes.paper}
