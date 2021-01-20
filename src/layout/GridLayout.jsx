@@ -54,7 +54,8 @@ const [movies,setMovies] = useContext(MovieContext);
   }
   const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
-  console.log(movies);
+  console.log(movies[0].moviesChanged);
+  const moviesDisplay = movies[0].moviesChanged?movies[0].filteredMovies:movies[0].movies
   return (
     <div>
       {loading ? (
@@ -68,7 +69,7 @@ const [movies,setMovies] = useContext(MovieContext);
               style={{ marginTop: "140px" }}
               spacing={2}
             >
-              {movies[0].movies.map((value) => (
+              {moviesDisplay.map((value) => (
                 <Grid key={value.id} item onClick={() => handleClick(value)}>
                   <Paper
                     className={classes.paper}
@@ -87,6 +88,7 @@ const [movies,setMovies] = useContext(MovieContext);
                   </Typography>
                 </Grid>
               ))}
+            
             </Grid>
           </Grid>
         </Grid>

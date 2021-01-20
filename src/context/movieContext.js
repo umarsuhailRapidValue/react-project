@@ -25,9 +25,10 @@ export const MovieProvider=(props)=>{
                 "Western",
                 "Horror",
                 "Musical",
-                "Sport"
+                "Sport",
             ],
             "movies": [
+               
                 {
                     "id": 1,
                     "title": "Beetlejuice",
