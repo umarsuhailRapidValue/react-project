@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+.navbar-list{
+  list-style: none;
+  cursor: pointer;
+}
+.navbar-list li{
+  display: inline;
+  margin: 10px;
+  background: rgb(107, 107, 107);
+  display: inline;
+  margin: 0.5px;
+  padding: 5px;
+  border-radius: 5px;
+  background: rgb(107, 107, 107);
+}
+.navbar-list li:hover{
+  background: rgb(75, 74, 74);
+
+}

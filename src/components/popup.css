@@ -12,9 +12,10 @@
     width: 600px;
     height: 400px;
     border-radius: 5px;
-    background-color: white;
-    color: black;
+    background-color: #179c52;
+    color: white;
     position: relative;
+    border: 5px solid;
 
 }
 span{

@@ -33,9 +33,14 @@ export default function Navbar() {
             <div className={classes.root} >
       <AppBar position="fixed" style={{background:'#171616'}}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={openSideBar}>
-            <MenuIcon />
-          </IconButton>
+          <ul className="navbar-list" style={{fontSize:12,display:"inline"}}>
+            <li>
+            Must watch movies
+            </li>
+            <li>
+            Live Score
+            </li>
+          </ul>
           <Typography variant="h6" className={classes.title}>
             Movie List
           </Typography>

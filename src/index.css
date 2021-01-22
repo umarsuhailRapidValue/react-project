@@ -22,5 +22,6 @@ code {
   position: relative;
   margin: 10px;
   border-radius: 15px;
+  border: 5px solid;
   
 }

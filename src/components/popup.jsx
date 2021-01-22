@@ -4,12 +4,15 @@ import CloseIcon from "@material-ui/icons/Close";
 import sampleImage from "../assets/sample.jpg";
 import ImageLoad from "./image";
 export default function Popup(props) {
+  const colors = ['#179c52','#17909c','#9c1717','#9c1748','#2d2d25']
+  const randomColor = Math.floor(Math.random()*colors.length);
+
   React.useEffect(() => {
     document.body.style.overflow = "hidden";
   }, []);
   return (
     <div className="popup-overlay">
-      <div className="popup-container">
+      <div className="popup-container" style={{background:colors[randomColor]}}>
         <div className="row">
           <h3>{props.title}</h3>
           <CloseIcon
