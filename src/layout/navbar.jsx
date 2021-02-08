@@ -8,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from './sideBar.jsx'
 import Filter from '../components/filter'
-
+import {Link} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -35,10 +35,14 @@ export default function Navbar() {
         <Toolbar>
           <ul className="navbar-list" style={{fontSize:12,display:"inline"}}>
             <li>
-            Must watch movies
+            <Link style={{textDecoration:'none',color:'white'}} to="/"> Must watch movies</Link>
+
+           
             </li>
             <li>
-            Live Score
+            <Link style={{textDecoration:'none',color:'white'}} to="/score">Live Score</Link>
+
+            
             </li>
           </ul>
           <Typography variant="h6" className={classes.title}>

@@ -80,7 +80,7 @@ const [movies,setMovies] = useContext(MovieContext);
                     alt='placeholder'/>
                   </Paper>
                   <Typography
-                    variant="h6"
+                    variant="subtitle2"
                     style={{ width: 100 }}
                     component="h2"
                   >
