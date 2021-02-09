@@ -1,0 +1,20 @@
+.card{
+    background-color: whitesmoke;
+    min-width: 100px;
+    min-height: 130px;
+    border-radius: 5px;
+}
+.homeTeam{
+    float: left;
+    margin: 10px;
+    background: #d8bd3a;
+    padding: 2px;
+    font-size: 10px;
+}
+.awayTeam{
+    float: right;
+    margin: 10px;
+    background: #d8bd3a;
+    padding: 2px;
+    font-size: 10px;  
+}

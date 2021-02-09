@@ -12,7 +12,7 @@ export default function MainLayout() {
         <div>
          <Switch>
           <Route exact path="/" component={GridLayout} />
-          <Route exact path="/profile" component={LiveScore} />
+          <Route exact path="/score" component={LiveScore} />
         </Switch>
         </div>
     )
