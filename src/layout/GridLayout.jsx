@@ -37,6 +37,7 @@ function testImage(URL) {
 }
 
 export default function GridLayout(props) {
+  console.log(window.location.pathname);
   const [loading, setLoading] = useState(false);
   const [popup, showPopup] = useState(false);
   const [popupData, setPopup] = useState({});

@@ -7,7 +7,7 @@ export default function LiveScore() {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://dev132-cricket-live-scores-v1.p.rapidapi.com/matches.php",
+    //   url: "https://dev132-cricket-live-scores-v1.p.rapidapi.com/matches.php",
       params: { completedlimit: "5", inprogresslimit: "5", upcomingLimit: "5" },
       headers: {
         "x-rapidapi-key": "20703a853amsh9ac3a7258cd3bc6p19e092jsnd2b898ca0783",
@@ -42,18 +42,24 @@ export default function LiveScore() {
     position: 'absolute',
     top: '-13px',
     left:' -2px',}}>Batting*</span>:''}
-   <span>
-        Score: {value.score.homeScore}
-    </span>
+    <hr/>
+    <span>Score:</span>
+   
+   <h2>
+        {value.scores?.homeScore}
+    </h2>
 </div>
 <div className="awayTeam" style={{float:'right',margin:10,position: 'relative',}}>
 {value.homeTeam.name}
 {value.homeTeam.isBatting?<span style={{color:'red',   position: 'absolute',
     top: '-13px',
     left:' -2px',}}>Batting*</span>:''}
-    <span>
-        Score: {value.score.awayScore}
-    </span>
+    <hr/>
+    <span>Score:</span>
+
+    <h2>
+         {value.scores?.awayScore}
+    </h2>
 </div>
         </div>
       ))}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,6 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from './sideBar.jsx'
 import Filter from '../components/filter'
 import {Link} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,8 +23,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-export default function Navbar() {
+export default function Navbar(props) {
+  let history = useHistory();
+const [title,setTitle]= useState('Movie List')
+useEffect(() => {
+  history.listen(() => {
+   setTitle(window.location.pathname)
+})
+}, [setTitle])
+  const routePath =  window.location.pathname;
       const classes = useStyles();
      const openSideBar=()=>{
        
@@ -45,10 +54,11 @@ export default function Navbar() {
             
             </li>
           </ul>
-          <Typography variant="h6" className={classes.title}>
-            Movie List
+       <Typography variant="h6" className={classes.title}>
+            {title=='/'?'MovieList':'Live Score'}
           </Typography>
-          <Filter/>
+          {title=='/'? <Filter/>:''}
+         
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
