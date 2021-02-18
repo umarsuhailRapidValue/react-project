@@ -96,7 +96,7 @@ export default function Navbar(props) {
                     highlightedIndex,
                     selectedItem,
                   }) => (
-                    <div style={{position:'relative'}}>
+                    <div style={{position:'relative',fontSize:12}}>
                       <label {...getLabelProps()}>Enter a movie name</label>
                       <input {...getInputProps()} />
                       <ul
