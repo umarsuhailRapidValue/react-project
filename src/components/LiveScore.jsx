@@ -7,7 +7,7 @@ export default function LiveScore() {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://dev132-cricket-live-scores-v1.p.rapidapi.com/matches.php",
+      url: "https://dev132-cricket-live-scores-v1.p.rapidapi.com/matches.php",    
       params: { completedlimit: "5", inprogresslimit: "5", upcomingLimit: "5" },
       headers: {
         "x-rapidapi-key": "20703a853amsh9ac3a7258cd3bc6p19e092jsnd2b898ca0783",
