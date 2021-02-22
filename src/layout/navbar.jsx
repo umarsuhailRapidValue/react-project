@@ -80,7 +80,7 @@ export default function Navbar(props) {
             <Typography variant="h6" className={classes.title}>
               {title == "/" ? "MovieList" : "Live Score"}
             </Typography>
-            <Downshift
+            {title == "/" ?  <Downshift
                   onChange={(selection) =>
                     alert(`You selected ${selection.value}`)
                   }
@@ -143,7 +143,8 @@ export default function Navbar(props) {
                       </ul>
                     </div>
                   )}
-                </Downshift>
+                </Downshift>: ""}
+           
             {title == "/" ? <Filter /> : ""}
 
             <Button color="inherit">Login</Button>
