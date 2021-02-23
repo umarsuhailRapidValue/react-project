@@ -4,14 +4,14 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import SideBar from "./sideBar.jsx";
 import Filter from "../components/filter";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { MovieContext } from "../context/movieContext";
 import Combobox from "../components/combobox.js";
+import { UserContext } from "../context/userContext";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,25 +25,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar(props) {
-  const [movies, setMovies] = useContext(MovieContext);
+export default function Navbar() {
+  const [users, setUsers] = useContext(UserContext);
   let history = useHistory();
   const [title, setTitle] = useState("Movie List");
-  const [items, setNames] = useState([]);
+  const apiCall = async function () {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then(function (response) {
+        // handle success
+     const userNames =    response.data.map(users=>{
+      return { value:users.name };
+        })
+    setUsers(...users, userNames);
 
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  };
   useEffect(() => {
+    apiCall();
     history.listen(() => {
       setTitle(window.location.pathname);
     });
-    const names = movies[0].movies.map((movieList) => {
-      return { value: movieList.title };
-    });
-    setNames(...items, names);
   }, [setTitle]);
   const routePath = window.location.pathname;
   const classes = useStyles();
-  const openSideBar = () => {};
-
+  console.log(users);
   return (
     <div>
       <div className={classes.root}>
@@ -67,13 +80,12 @@ export default function Navbar(props) {
                   Live Score
                 </Link>
               </li>
-        
             </ul>
             <Typography variant="h6" className={classes.title}>
               {title == "/" ? "MovieList" : "Live Score"}
             </Typography>
-            {title == "/" ? <Combobox items={items} />: ""}
-           
+            {title == "/" ? <Combobox items={users} /> : ""}
+
             {title == "/" ? <Filter /> : ""}
 
             <Button color="inherit">Login</Button>
