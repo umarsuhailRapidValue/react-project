@@ -17,8 +17,8 @@ export default function Combobox(props) {
         highlightedIndex,
         selectedItem,
       }) => (
-        <div style={{ position: "relative", fontSize: 12 }}>
-          <label {...getLabelProps()}>Enter a movie name</label>
+        <div style={{ position: "relative", fontSize: 12,padding:10 }}>
+          <label {...getLabelProps()}>Search users</label>
           <input {...getInputProps()} />
           <ul
             {...getMenuProps()}
@@ -28,7 +28,7 @@ export default function Combobox(props) {
               height: "100vh",
               overflow: "auto",
               fontSize: " 12px",
-              left: "0px",
+              left: "50px",
               top: "30px",
               listStyle: "none",
             }}
@@ -45,6 +45,7 @@ export default function Combobox(props) {
                         index,
                         item,
                         style: {
+                          padding:10,
                           backgroundColor:
                             highlightedIndex === index ? "lightgray" : "black",
                           fontWeight: selectedItem === item ? "bold" : "normal",
